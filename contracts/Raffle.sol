@@ -19,7 +19,7 @@ import "@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatible
 
 
 // custom errors
-error Raffle_SendMoreETHToEnter();
+error Raffle__SendMoreToEnterRaffle();
 error Raffle_UpKeepNotNeeded(uint256 currBalance,uint256 numPlayers,uint256 raffleState);
 error Raffle__RaffleNotOpen();
 error Raffle__TransferFailed();
@@ -98,7 +98,7 @@ contract Raffle is VRFConsumerBaseV2Plus,AutomationCompatibleInterface {
     // with this function anyone can pay an entrance fee in order to join the program.
     function enterRaffle() public payable{
         if(msg.value<i_entranceFee){
-            revert Raffle_SendMoreETHToEnter();
+            revert Raffle__SendMoreToEnterRaffle();
         }
         if(s_raffleState!=RaffleState.OPEN){
             revert Raffle__RaffleNotOpen();
@@ -181,12 +181,20 @@ contract Raffle is VRFConsumerBaseV2Plus,AutomationCompatibleInterface {
 
 
     // Getter functions
+    function getPlayer(uint256 index) public view returns (address) {
+        return s_players[index];
+    }
+    
     function getRaffleState() public view returns (RaffleState) {
         return s_raffleState;
     }
 
     function getInterval() public view returns (uint256) {
         return i_interval;
+    }
+
+    function getEntranceFee() public view returns (uint256) {
+        return i_entranceFee;
     }
 
 
