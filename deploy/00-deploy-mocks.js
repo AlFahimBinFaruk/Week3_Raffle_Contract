@@ -11,13 +11,13 @@ module.exports=async({getNamedAccounts,deployments})=>{
 
     if(chainId==31337){
         log("Local network detected! Deploying mocks...");
-        await deploy("VRFFCoordinateV2Mocks",{
+        await deploy("VRFCoordinatorV2Mock",{
             from:deployer,
             log:true,
             args:[BASE_FEE,GAS_PRICE_LINK]
         });
 
-        log("Mocks Deployed!")
+        log("Mocks Deployed!");
         log("----------------------------------------------------------");
         log("You are deploying to a local network, you'll need a local network running to interact");
         log(

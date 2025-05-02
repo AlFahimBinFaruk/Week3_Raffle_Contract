@@ -1,7 +1,10 @@
 ## Raffle contract.
-[X]Contract creation
-[ ] Configuration
-[ ] Testing
+
+- [X] Contract creation
+- [X] write deploy script
+- [ ] Configuration
+- [ ] get subscription ID.
+- [ ] Testing
 
 
 ### Features

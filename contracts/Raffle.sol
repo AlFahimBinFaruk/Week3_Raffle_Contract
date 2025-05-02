@@ -77,7 +77,8 @@ contract Raffle is VRFConsumerBaseV2Plus,AutomationCompatibleInterface {
         uint256 _i_entranceFee,
         bytes32 _keyHash,
         uint256 _subscriptionId,
-        uint32 _callbackGasLimit
+        uint32 _callbackGasLimit,
+        uint256 _i_interval
         ) VRFConsumerBaseV2Plus(vrfCoordinator){
         i_entranceFee=_i_entranceFee;
         s_raffleState=RaffleState.OPEN;
@@ -85,6 +86,7 @@ contract Raffle is VRFConsumerBaseV2Plus,AutomationCompatibleInterface {
         i_keyHash=_keyHash;
         i_subscriptionId=_subscriptionId;
         i_callbackGasLimit=_callbackGasLimit;
+        i_interval=_i_interval;
     }
 
 
@@ -172,6 +174,19 @@ contract Raffle is VRFConsumerBaseV2Plus,AutomationCompatibleInterface {
         }
         emit WinnerPicked(recentWinner);
 
+    }
+
+
+
+
+
+    // Getter functions
+    function getRaffleState() public view returns (RaffleState) {
+        return s_raffleState;
+    }
+
+    function getInterval() public view returns (uint256) {
+        return i_interval;
     }
 
 
