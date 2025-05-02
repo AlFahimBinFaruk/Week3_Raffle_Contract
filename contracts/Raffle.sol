@@ -73,8 +73,8 @@ contract Raffle is VRFConsumerBaseV2Plus,AutomationCompatibleInterface {
 
     // Constructor
     constructor(
-        uint256 _i_entranceFee,
         address vrfCoordinator,
+        uint256 _i_entranceFee,
         bytes32 _keyHash,
         uint256 _subscriptionId,
         uint32 _callbackGasLimit

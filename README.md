@@ -1,7 +1,7 @@
 ## Raffle contract.
-* Contract creation
-* Configuration
-* Testing
+[X]Contract creation
+[ ] Configuration
+[ ] Testing
 
 
 ### Features
