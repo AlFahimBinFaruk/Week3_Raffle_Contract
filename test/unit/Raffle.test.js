@@ -66,7 +66,7 @@ const {developmentChains,networkConfig} = require('../../helper-hardhat-config')
             // the change dosent take effect until a new block is mined,so it does that.
             await network.provider.request({ method: "evm_mine", params: [] })
             // we pretend to be a keeper for a second
-            await raffle.performUpkeep(ethers.toUtf8Bytes("99")) // changes the state to calculating for our comparison below
+            await raffle.performUpkeep("0x") 
             // await expect(raffle.enterRaffle({ value: raffleEntranceFee })).to.be.revertedWithCustomError("Raffle__RaffleNotOpen");
         })
     })
